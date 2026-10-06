@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+  <!-- Anti-FOUC (Flash of Untranslated Content) Prevention Script -->
+  <script>
+    (function () {
+      try {
+        var savedLang = localStorage.getItem('kast_site_lang');
+        if (savedLang === 'en') {
+          document.documentElement.lang = 'en';
+          document.documentElement.classList.add('lang-en-pending');
+          setTimeout(function () {
+            document.documentElement.classList.remove('lang-en-pending');
+          }, 300);
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Контакти та Вакансії — Kast Solutions</title>
+  <meta name="meta-title-key" content="contacts.meta_title">
+  <meta name="meta-desc-key" content="contacts.meta_desc">
+  <meta name="description"
+    content="Контактна інформація компанії Kast Solutions у Києві. Актуальні IT вакансії: AI інженери, архітектори кібербезпеки, DevOps та Full-Stack розробники.">
+  <meta name="keywords"
+    content="Kast Solutions контакти, IT вакансії Київ, робота в IT, AI інженер вакансія, кібербезпека робота, DevOps вакансія, Kast Solutions офіс">
+
+  <!-- FontAwesome for icons (Local) -->
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="css/style.css?v=11">
+  <link rel="stylesheet" href="css/vacancies.css?v=5">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/32_32_logo.png">
+</head>
+
+<body class="careers-page">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header-main">
+
+      <!-- Brand Logo -->
+      <a href="index.html" class="header__logo">
+        <img src="img/logo.png" width="48" height="48" alt="Kast Solutions">
+        <span class="header__logo-brand">Kast <span>Solutions</span></span>
+      </a>
+
+      <!-- Navigation Menu -->
+      <nav class="header-main__nav">
+        <ul class="header-main__menu">
+          <li>
+            <a href="services.html" data-i18n="nav.services">Послуги</a>
+          </li>
+          <li class="active">
+            <span><span data-i18n="nav.about">Про компанію</span> <i class="fa fa-angle-down"></i></span>
+            <div class="header-main__submenu-block">
+              <div class="header-main__submenu-wrap">
+                <ul class="header-main__submenu">
+                  <li><a href="about.html" data-i18n="nav.about_us">Про нас</a></li>
+                  <li><a href="licenses.html" data-i18n="nav.certificates">Сертифікати</a></li>
+                  <li><a href="contacts.html#vacancies" data-i18n="nav.careers">Вакансії</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li>
+            <a href="team.html" data-i18n="nav.team">Команда</a>
+          </li>
+          <li class="active">
+            <a href="contacts.html" data-i18n="nav.contacts">Контакти</a>
+          </li>
+        </ul>
+
+        <a href="#callback-modal" data-modal-target="callback-modal" class="header__cta-btn" data-i18n="nav.cta">Отримати консультацію</a>
+      </nav>
+
+      <!-- Header Actions (Language Dropdown & Burger) -->
+      <div class="header__actions">
+        <div class="lang-dropdown" id="lang-dropdown">
+          <button type="button" class="lang-dropdown__toggle" id="lang-toggle-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Вибір мови">
+            <span class="lang-dropdown__flag" id="current-lang-flag">
+              <svg class="flag-icon" viewBox="0 0 640 480" width="18" height="13.5" aria-hidden="true">
+                <g fill-rule="evenodd" stroke-width="1pt">
+                  <path fill="#0057b7" d="M0 0h640v240H0z"/>
+                  <path fill="#ffd700" d="M0 240h640v240H0z"/>
+                </g>
+              </svg>
+            </span>
+            <span class="lang-dropdown__label" id="current-lang-label">UA</span>
+            <svg class="lang-dropdown__chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+              <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="lang-dropdown__menu" role="listbox" aria-labelledby="lang-toggle-btn">
+            <button type="button" class="lang-dropdown__item active" data-lang="uk" role="option" aria-selected="true">
+              <span class="lang-dropdown__flag">
+                <svg class="flag-icon" viewBox="0 0 640 480" width="18" height="13.5" aria-hidden="true">
+                  <g fill-rule="evenodd" stroke-width="1pt">
+                    <path fill="#0057b7" d="M0 0h640v240H0z"/>
+                    <path fill="#ffd700" d="M0 240h640v240H0z"/>
+                  </g>
+                </svg>
+              </span>
+              <span class="lang-dropdown__name">Українська</span>
+              <svg class="lang-dropdown__check" width="12" height="10" viewBox="0 0 12 10" fill="none" aria-hidden="true">
+                <path d="M1 5L4.5 8.5L11 1.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <button type="button" class="lang-dropdown__item" data-lang="en" role="option" aria-selected="false">
+              <span class="lang-dropdown__flag">
+                <svg class="flag-icon" viewBox="0 0 640 480" width="18" height="13.5" aria-hidden="true">
+                  <path fill="#012169" d="M0 0h640v480H0z"/>
+                  <path fill="#FFF" d="m75 0 244 181L562 0h78v62L400 240l240 178v62h-80L320 301 81 480H0v-60l239-180L0 64V0h75z"/>
+                  <path fill="#C8102E" d="m424 288 216 162v30h-40L384 300l40-12zm-208 0-40 12L0 426v-30l176-132 40 24zM640 0v16L464 148l-40-24L600 0h40zM0 0h40L216 132l-40 24L0 34V0z"/>
+                  <path fill="#FFF" d="M240 0h160v480H240zM0 160h640v160H0z"/>
+                  <path fill="#C8102E" d="M267 0h106v480H267zM0 187h640v106H0z"/>
+                </svg>
+              </span>
+              <span class="lang-dropdown__name">English</span>
+              <svg class="lang-dropdown__check" width="12" height="10" viewBox="0 0 12 10" fill="none" aria-hidden="true">
+                <path d="M1 5L4.5 8.5L11 1.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile Burger Menu Button -->
+        <button class="header__burger" aria-label="Відкрити меню" data-i18n-aria="header.burger_aria">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <main>
+    <!-- PAGE BANNER: Контакти -->
+    <section class="page-banner" style="background-image: url('img/header1.jpg');">
+      <div class="page-banner__content">
+        <span class="tech-badge" style="margin-bottom: 16px;" data-i18n="contacts.banner_badge">Get In Touch</span>
+        <h1 class="page-banner__title" data-i18n="contacts.banner_title">
+          Контакти та кар'єра
+        </h1>
+        <p class="page-banner__subtitle" data-i18n="contacts.banner_subtitle">
+          Завжди відкриті до нових технологічних партнерств та талановитих фахівців, які прагнуть змінювати цифрову індустрію.
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTACTS SECTION -->
+    <section class="contacts_page_section" style="padding: 70px 0 50px;">
+      <div class="container">
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 50px;">
+          
+          <div style="background: #F8FAFC; border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 30px;">
+            <div style="width: 44px; height: 44px; border-radius: 50%; background: rgba(2, 132, 199, 0.1); color: var(--color-primary); display: grid; place-items: center; font-size: 18px; margin-bottom: 16px;">
+              <i class="fa fa-map-marker"></i>
+            </div>
+            <h3 style="font-size: 18px; font-weight: 700; color: #0A192F; margin-bottom: 8px;" data-i18n="contacts.card1_title">Головний офіс</h3>
+            <p style="color: #64748B; font-size: 15px; line-height: 1.6;" data-i18n="contacts.card1_desc">
+              03150, Україна, м. Київ, вул. Ділова, буд. 5, Бізнес-центр «Horizon», 4 поверх
+            </p>
+          </div>
+
+          <div style="background: #F8FAFC; border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 30px;">
+            <div style="width: 44px; height: 44px; border-radius: 50%; background: rgba(2, 132, 199, 0.1); color: var(--color-primary); display: grid; place-items: center; font-size: 18px; margin-bottom: 16px;">
+              <i class="fa fa-envelope"></i>
+            </div>
+            <h3 style="font-size: 18px; font-weight: 700; color: #0A192F; margin-bottom: 8px;" data-i18n="contacts.card2_title">Електронна пошта</h3>
+            <p style="color: #64748B; font-size: 15px; line-height: 1.6;">
+              <span data-i18n="contacts.card2_inquiries">Загальні питання:</span> <a href="mailto:info@kast-solutions.com" style="color: var(--color-primary); font-weight: 500;">info@kast-solutions.com</a><br>
+              <span data-i18n="contacts.card2_hr">Кар'єра & HR:</span> <a href="mailto:hr@kast-solutions.com" style="color: var(--color-primary); font-weight: 500;">hr@kast-solutions.com</a>
+            </p>
+          </div>
+
+          <div style="background: #F8FAFC; border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 30px;">
+            <div style="width: 44px; height: 44px; border-radius: 50%; background: rgba(2, 132, 199, 0.1); color: var(--color-primary); display: grid; place-items: center; margin-bottom: 16px;">
+              <svg style="width: 20px; height: 20px; fill: currentColor;" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+            </div>
+            <h3 style="font-size: 18px; font-weight: 700; color: #0A192F; margin-bottom: 8px;" data-i18n="contacts.card3_title">Прямий зв'язок</h3>
+            <p style="color: #64748B; font-size: 15px; line-height: 1.6;">
+              <span data-i18n="contacts.card3_tg">Telegram підтримка:</span> <a href="https://t.me/kast_solutions_demo" target="_blank" style="color: var(--color-primary); font-weight: 500;">@kast_solutions_demo</a><br>
+              <span data-i18n="contacts.card3_hours">Графік:</span> <span data-i18n="contacts.card3_sched_val">Пн-Пт 09:00 - 18:00 (GMT+2)</span>
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CAREERS / VACANCIES SECTION -->
+    <section id="vacancies" class="careers" aria-labelledby="careers-title">
+      <div class="container">
+        <div class="careers-intro">
+          <div>
+            <div class="careers-eyebrow" data-i18n="contacts.car_badge">Кар'єрні можливості</div>
+            <h2 id="careers-title"><span data-i18n="contacts.car_title_prefix">Приєднуйтесь до команди </span><span>Kast Solutions</span></h2>
+            <p class="careers-intro__text" data-i18n="contacts.car_desc">Ми шукаємо сильних інженерів та дослідників для створення рішень у сфері Enterprise AI, хмарних екосистем та кібербезпеки.</p>
+          </div>
+          <div class="careers-count"><span class="careers-count__dot" aria-hidden="true"></span> <span data-i18n="contacts.car_count">4 відкриті позиції</span></div>
+        </div>
+
+        <ul class="spoiler_list vacancies" role="list">
+          
+          <!-- Vacancy 1: Senior AI / ML Engineer -->
+          <li>
+            <div class="vacancy-kicker"><span data-i18n="contacts.vac1_kicker">Штучний інтелект</span> <span data-i18n="contacts.vac1_loc">Київ / Remote</span></div>
+            <h2 class="vacancy">
+              <button type="button" class="vacancy-toggle" aria-expanded="false" aria-controls="vac-1">
+                <span data-i18n="contacts.vac1_title">Senior AI / ML Engineer (LLM & RAG Systems)</span>
+                <span class="vacancy-toggle__icon" aria-hidden="true">+</span>
+              </button>
+            </h2>
+            <div class="salary steel">
+              <div class="conditions" data-i18n="contacts.vac_comp_label">Зарплата:</div>
+              <div class="sum">$4 500 – $6 500</div>
+            </div>
+            <div class="vacancy_details" id="vac-1" hidden>
+              <p><strong data-i18n="contacts.vac_resp_label">Обов’язки:</strong></p>
+              <ul>
+                <li data-i18n="contacts.vac1_r1">Розробка та оптимізація корпоративних RAG-систем на базі локальних та хмарних LLM;</li>
+                <li data-i18n="contacts.vac1_r2">Інтеграція векторних баз даних (Qdrant, Milvus, Pinecone) та налаштування пайплайнів обробки даних;</li>
+                <li data-i18n="contacts.vac1_r3">Створення мультиагентних систем для автоматизації складних бізнес-процесів;</li>
+                <li data-i18n="contacts.vac1_r4">Тюнінг та квантування відкритих моделей (Llama 3, Mistral) під специфічні доменні задачі.</li>
+              </ul>
+              <p style="margin-top: 12px;" data-i18n="contacts.vac1_req" data-i18n-html="true"><strong>Вимоги:</strong> 4+ роки досвіду з Python, PyTorch, LangChain/LlamaIndex, глибоке розуміння сучасних трансформерних архітектур.</p>
+              
+              <div class="vacancy-contact">
+                <button type="button" class="vacancy-apply" data-apply-vacancy="Senior AI / ML Engineer (LLM & RAG Systems)">
+                  <span>&rarr;</span> <span data-i18n="contacts.vac_apply_btn">Відгукнутися на вакансію</span>
+                </button>
+                <a href="https://t.me/kast_solutions_demo" target="_blank" rel="noopener noreferrer" class="vacancy-contact__telegram">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.944 0A12 12 0 1 0 24 12.056A12.014 12.014 0 0 0 11.944 0Zm5.654 7.382l-1.96 9.246c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.538-.196 1.006.128.832.944Z"/></svg>
+                  <span data-i18n="contacts.vac_tg_btn">Написати в Telegram</span>
+                </a>
+              </div>
+            </div>
+          </li>
+
+          <!-- Vacancy 2: Lead Cybersecurity Architect -->
+          <li>
+            <div class="vacancy-kicker"><span data-i18n="contacts.vac2_kicker">Кібербезпека</span> <span data-i18n="contacts.vac2_loc">Київ / Гібрид</span></div>
+            <h2 class="vacancy">
+              <button type="button" class="vacancy-toggle" aria-expanded="false" aria-controls="vac-2">
+                <span data-i18n="contacts.vac2_title">Lead Cybersecurity Architect / Pentester</span>
+                <span class="vacancy-toggle__icon" aria-hidden="true">+</span>
+              </button>
+            </h2>
+            <div class="salary steel">
+              <div class="conditions" data-i18n="contacts.vac_comp_label">Зарплата:</div>
+              <div class="sum">$4 000 – $6 000</div>
+            </div>
+            <div class="vacancy_details" id="vac-2" hidden>
+              <p><strong data-i18n="contacts.vac_resp_label">Обов’язки:</strong></p>
+              <ul>
+                <li data-i18n="contacts.vac2_r1">Проведення комплексних аудитів безпеки (Network, Web, Cloud) та тестування на проникнення;</li>
+                <li data-i18n="contacts.vac2_r2">Проєктування та контроль впровадження архітектур Zero-Trust для корпоративних клієнтів;</li>
+                <li data-i18n="contacts.vac2_r3">Аудит відповідності стандартам ISO 27001, SOC 2, GDPR;</li>
+                <li data-i18n="contacts.vac2_r4">Керівництво процесом Incident Response та аналіз векторів загроз.</li>
+              </ul>
+              <p style="margin-top: 12px;" data-i18n="contacts.vac2_req" data-i18n-html="true"><strong>Вимоги:</strong> Сертифікати OSCP / CEH / CISSP, 5+ років практичного досвіду в offensive/defensive безпеці.</p>
+              
+              <div class="vacancy-contact">
+                <button type="button" class="vacancy-apply" data-apply-vacancy="Lead Cybersecurity Architect / Pentester">
+                  <span>&rarr;</span> <span data-i18n="contacts.vac_apply_btn">Відгукнутися на вакансію</span>
+                </button>
+                <a href="https://t.me/kast_solutions_demo" target="_blank" rel="noopener noreferrer" class="vacancy-contact__telegram">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.944 0A12 12 0 1 0 24 12.056A12.014 12.014 0 0 0 11.944 0Zm5.654 7.382l-1.96 9.246c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.538-.196 1.006.128.832.944Z"/></svg>
+                  <span data-i18n="contacts.vac_tg_btn">Написати в Telegram</span>
+                </a>
+              </div>
+            </div>
+          </li>
+
+          <!-- Vacancy 3: Senior DevOps Engineer -->
+          <li>
+            <div class="vacancy-kicker"><span data-i18n="contacts.vac3_kicker">Хмарна інфраструктура</span> <span data-i18n="contacts.vac3_loc">Remote</span></div>
+            <h2 class="vacancy">
+              <button type="button" class="vacancy-toggle" aria-expanded="false" aria-controls="vac-3">
+                <span data-i18n="contacts.vac3_title">Senior DevOps & Cloud Infrastructure Engineer (AWS & K8s)</span>
+                <span class="vacancy-toggle__icon" aria-hidden="true">+</span>
+              </button>
+            </h2>
+            <div class="salary steel">
+              <div class="conditions" data-i18n="contacts.vac_comp_label">Зарплата:</div>
+              <div class="sum">$3 800 – $5 500</div>
+            </div>
+            <div class="vacancy_details" id="vac-3" hidden>
+              <p><strong data-i18n="contacts.vac_resp_label">Обов’язки:</strong></p>
+              <ul>
+                <li data-i18n="contacts.vac3_r1">Побудова та супровід продакшен-кластерів Kubernetes у середовищах AWS та Azure;</li>
+                <li data-i18n="contacts.vac3_r2">Автоматизація інфраструктури за принципом Infrastructure as Code (Terraform, Terragrunt);</li>
+                <li data-i18n="contacts.vac3_r3">Побудова безпечних CI/CD конвеєрів з інтеграцією SAST/DAST перевірок;</li>
+                <li data-i18n="contacts.vac3_r4">Моніторинг та алертинг (Prometheus, Grafana, OpenTelemetry).</li>
+              </ul>
+              <p style="margin-top: 12px;" data-i18n="contacts.vac3_req" data-i18n-html="true"><strong>Вимоги:</strong> Досвід від 4 років, сертифікація CKA / AWS Solutions Architect буде перевагою.</p>
+              
+              <div class="vacancy-contact">
+                <button type="button" class="vacancy-apply" data-apply-vacancy="Senior DevOps & Cloud Infrastructure Engineer">
+                  <span>&rarr;</span> <span data-i18n="contacts.vac_apply_btn">Відгукнутися на вакансію</span>
+                </button>
+                <a href="https://t.me/kast_solutions_demo" target="_blank" rel="noopener noreferrer" class="vacancy-contact__telegram">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.944 0A12 12 0 1 0 24 12.056A12.014 12.014 0 0 0 11.944 0Zm5.654 7.382l-1.96 9.246c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.538-.196 1.006.128.832.944Z"/></svg>
+                  <span data-i18n="contacts.vac_tg_btn">Написати в Telegram</span>
+                </a>
+              </div>
+            </div>
+          </li>
+
+          <!-- Vacancy 4: Senior Full-Stack Developer -->
+          <li>
+            <div class="vacancy-kicker"><span data-i18n="contacts.vac4_kicker">Розробка ПЗ</span> <span data-i18n="contacts.vac4_loc">Київ / Remote</span></div>
+            <h2 class="vacancy">
+              <button type="button" class="vacancy-toggle" aria-expanded="false" aria-controls="vac-4">
+                <span data-i18n="contacts.vac4_title">Senior Full-Stack Developer (Go / Node.js & React)</span>
+                <span class="vacancy-toggle__icon" aria-hidden="true">+</span>
+              </button>
+            </h2>
+            <div class="salary steel">
+              <div class="conditions" data-i18n="contacts.vac_comp_label">Зарплата:</div>
+              <div class="sum">$3 500 – $5 000</div>
+            </div>
+            <div class="vacancy_details" id="vac-4" hidden>
+              <p><strong data-i18n="contacts.vac_resp_label">Обов’язки:</strong></p>
+              <ul>
+                <li data-i18n="contacts.vac4_r1">Проєктування та розробка мікросервісів для корпоративних B2B платформ;</li>
+                <li data-i18n="contacts.vac4_r2">Створення швидких, адаптивних та доступних інтерфейсів на React / Next.js / TypeScript;</li>
+                <li data-i18n="contacts.vac4_r3">Оптимізація роботи реляційних та NoSQL баз даних під високі навантаження;</li>
+                <li data-i18n="contacts.vac4_r4">Участь у code review та архітектурних мітингах команди.</li>
+              </ul>
+              <p style="margin-top: 12px;" data-i18n="contacts.vac4_req" data-i18n-html="true"><strong>Вимоги:</strong> 4+ роки досвіду, впевнене володіння Go або Node.js, глибоке розуміння протоколів REST, gRPC, WebSocket.</p>
+              
+              <div class="vacancy-contact">
+                <button type="button" class="vacancy-apply" data-apply-vacancy="Senior Full-Stack Developer">
+                  <span>&rarr;</span> <span data-i18n="contacts.vac_apply_btn">Відгукнутися на вакансію</span>
+                </button>
+                <a href="https://t.me/kast_solutions_demo" target="_blank" rel="noopener noreferrer" class="vacancy-contact__telegram">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.944 0A12 12 0 1 0 24 12.056A12.014 12.014 0 0 0 11.944 0Zm5.654 7.382l-1.96 9.246c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.538-.196 1.006.128.832.944Z"/></svg>
+                  <span data-i18n="contacts.vac_tg_btn">Написати в Telegram</span>
+                </a>
+              </div>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+    </section>
+
+    <!-- JOB APPLICATION DIALOG -->
+    <dialog id="application-dialog" class="application-dialog">
+      <button type="button" class="application-close" data-application-close aria-label="Закрити" data-i18n-aria="app_dialog.close_aria">&times;</button>
+      <div class="application-body" data-application-body>
+        <div class="careers-eyebrow" data-i18n="app_dialog.eyebrow">Кар'єра в Kast Solutions</div>
+        <h2 id="application-title" data-i18n="app_dialog.title">Відгук на вакансію</h2>
+        <p id="application-description" class="application-description" data-i18n="app_dialog.desc">Заповніть форму, і наш рекрутер зв'яжеться з вами для проведення технічного інтерв'ю.</p>
+
+        <form id="application-form" data-vacancy-form novalidate>
+          <div class="application-field application-vacancy">
+            <label for="app-vacancy" data-i18n="app_dialog.vacancy_label">Позиція</label>
+            <select id="app-vacancy" name="vacancy" required>
+              <option value="" data-i18n="app_dialog.vacancy_placeholder">Оберіть вакансію…</option>
+              <option value="Senior AI / ML Engineer (LLM & RAG Systems)" data-i18n="contacts.vac1_title">Senior AI / ML Engineer (LLM & RAG Systems)</option>
+              <option value="Lead Cybersecurity Architect / Pentester" data-i18n="contacts.vac2_title">Lead Cybersecurity Architect / Pentester</option>
+              <option value="Senior DevOps & Cloud Infrastructure Engineer" data-i18n="contacts.vac3_title">Senior DevOps & Cloud Infrastructure Engineer</option>
+              <option value="Senior Full-Stack Developer" data-i18n="contacts.vac4_title">Senior Full-Stack Developer</option>
+            </select>
+            <div class="application-field-error" id="error-vacancy" role="alert"></div>
+          </div>
+
+          <div class="application-grid">
+            <div class="application-field">
+              <label for="app-name"><span data-i18n="app_dialog.name_label">Ваше ім’я</span> <span>*</span></label>
+              <input type="text" id="app-name" name="name" placeholder="Олександр" data-i18n-placeholder="app_dialog.name_placeholder" required autocomplete="name">
+              <div class="application-field-error" id="error-name" role="alert"></div>
+            </div>
+
+            <div class="application-field">
+              <label for="app-phone"><span data-i18n="app_dialog.phone_label">Номер телефону</span> <span>*</span></label>
+              <input type="tel" id="app-phone" name="phone" placeholder="+38 (0XX) XXX-XX-XX" data-i18n-placeholder="app_dialog.phone_placeholder" required autocomplete="tel">
+              <div class="application-field-error" id="error-phone" role="alert"></div>
+            </div>
+          </div>
+
+          <div class="application-grid">
+            <div class="application-field">
+              <label for="app-telegram"><span data-i18n="app_dialog.telegram_label">Telegram</span> <span class="field-optional" data-i18n="app_dialog.telegram_opt">(нікнейм)</span></label>
+              <input type="text" id="app-telegram" name="telegram" placeholder="@username" data-i18n-placeholder="app_dialog.telegram_placeholder">
+              <div class="application-field-error" id="error-telegram" role="alert"></div>
+            </div>
+
+            <div class="application-field">
+              <label for="app-resume" data-i18n="app_dialog.resume_label">Посилання на резюме / LinkedIn</label>
+              <input type="url" id="app-resume" name="resume" placeholder="https://..." data-i18n-placeholder="app_dialog.resume_placeholder">
+              <div class="application-field-error" id="error-resume" role="alert"></div>
+            </div>
+          </div>
+
+          <label class="application-consent">
+            <input type="checkbox" name="consent" required checked>
+            <span data-i18n="app_dialog.consent">Я даю згоду на обробку моїх персональних даних для участі у відборі на посаду.</span>
+          </label>
+          <div class="application-field-error" id="error-consent" role="alert"></div>
+
+          <button type="submit" class="application-submit">
+            <span data-submit-label data-i18n="app_dialog.submit_label">Надіслати відгук</span>
+          </button>
+          <div class="application-status" hidden role="alert"></div>
+        </form>
+      </div>
+
+      <div class="application-success" data-application-success hidden>
+        <div class="application-success__icon">&#10003;</div>
+        <div class="careers-eyebrow" data-i18n="app_dialog.success_eyebrow">Відгук надіслано</div>
+        <h2 data-i18n="app_dialog.success_title">Дякуємо за інтерес до Kast Solutions!</h2>
+        <p><span data-i18n="app_dialog.success_desc_prefix">Вашу заявку на позицію </span><strong data-success-vacancy></strong><span data-i18n="app_dialog.success_desc_suffix"> успішно прийнято. Наша HR-команда зв'яжеться з вами протягом 2 робочих днів.</span></p>
+        <button type="button" class="btn btn-azure" data-application-close data-i18n="app_dialog.success_close_btn">Зрозуміло</button>
+      </div>
+    </dialog>
+
+  </main>
+
+  <!-- REDESIGNED FOOTER (Modern Tech B2B Layout) -->
+  <footer class="footer">
+    <div class="container footer__grid">
+
+      <!-- Col 1: Brand & Multi-Social Links -->
+      <div>
+        <div class="footer__col-logo">
+          <img src="img/logo.png" width="36" height="36" alt="Kast Solutions">
+          <span>Kast <b>Solutions</b></span>
+        </div>
+        <p class="footer__brand-text" data-i18n="footer.brand_desc">
+          Міжнародний консалтинг у сфері кібербезпеки, штучного інтелекту та високонавантаженої хмарної архітектури.
+        </p>
+        <div class="footer__social-list">
+          <a href="https://t.me/kast_solutions_demo" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="Telegram">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+          </a>
+          <a href="#" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.25c-.91 0-1.64.73-1.64 1.64s.73 1.64 1.64 1.64 1.64-.73 1.64-1.64-.73-1.64-1.64-1.64z"/></svg>
+          </a>
+          <a href="#" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="GitHub">
+            <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+          </a>
+          <a href="#" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="X (Twitter)">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Col 2: Solutions -->
+      <div>
+        <p class="footer__col-title" data-i18n="footer.col_solutions">Напрями послуг</p>
+        <ul class="footer__menu-list">
+          <li><a href="services.html" data-i18n="footer.sol_software">Розробка ПЗ</a></li>
+          <li><a href="services.html" data-i18n="footer.sol_cyber">Аудит кібербезпеки</a></li>
+          <li><a href="services.html" data-i18n="footer.sol_ai">Штучний інтелект & LLM</a></li>
+          <li><a href="services.html" data-i18n="footer.sol_cloud">Хмарний DevOps & K8s</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Company -->
+      <div>
+        <p class="footer__col-title" data-i18n="footer.col_company">Компанія</p>
+        <ul class="footer__menu-list">
+          <li><a href="about.html" data-i18n="footer.comp_about">Про нас</a></li>
+          <li><a href="team.html" data-i18n="footer.comp_team">Команда лідерів</a></li>
+          <li><a href="licenses.html" data-i18n="footer.comp_certs">Сертифікати ISO</a></li>
+          <li><a href="contacts.html#vacancies" data-i18n="footer.comp_careers">Кар'єра та вакансії</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Contacts -->
+      <div>
+        <p class="footer__col-title" data-i18n="footer.col_contacts">Контакти</p>
+        <ul class="footer__contacts-list">
+          <li><strong data-i18n="footer.contact_office_label">Офіс:</strong> <span data-i18n="footer.contact_office_val">м. Київ, вул. Ділова, 5, БЦ «Horizon»</span></li>
+          <li><strong data-i18n="footer.contact_email_label">Email:</strong> <a href="mailto:info@kast-solutions.com">info@kast-solutions.com</a></li>
+          <li><strong data-i18n="footer.contact_phone_label">Телефон:</strong> +38 (044) 390-00-00</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="container footer__bottom">
+      <p class="footer__copy" data-i18n="footer.copy">&copy; 2026 Kast Solutions. Всі права захищені.</p>
+      <div class="footer__bottom-links">
+        <a href="#" data-i18n="footer.privacy">Політика конфіденційності</a>
+        <a href="#" data-i18n="footer.terms">Умови надання послуг</a>
+        <a href="#" data-i18n="footer.compliance">ISO 27001 Compliance</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL POPUP FOR CALLBACK -->
+  <div class="modal" id="callback-modal">
+    <div class="modal__backdrop"></div>
+    <div class="modal__content">
+      <button class="modal__close" data-modal-close aria-label="Закрити модальне вікно" data-i18n-aria="modal.close_aria"></button>
+      <h3 class="modal__title" data-i18n="modal.title">Замовити консультацію</h3>
+      <p class="modal__subtitle" data-i18n="modal.subtitle">Заповніть форму, і наш провідний IT-архітектор зв'яжеться з вами протягом 15 хвилин.</p>
+
+      <form>
+        <div class="form-group">
+          <label for="modal-name" data-i18n="modal.name_label">Ваше ім’я</label>
+          <input type="text" id="modal-name" name="name" class="form-control" placeholder="Олександр" data-i18n-placeholder="modal.name_placeholder" required>
+        </div>
+        <div class="form-group">
+          <label for="modal-phone" data-i18n="modal.phone_label">Номер телефону</label>
+          <input type="tel" id="modal-phone" name="phone" class="form-control" placeholder="+38 (0XX) XXX-XX-XX" data-i18n-placeholder="modal.phone_placeholder"
+            required>
+        </div>
+
+        <div class="form-consent">
+          <input type="checkbox" id="modal-consent" checked required>
+          <label for="modal-consent">
+            <span data-i18n="modal.consent">Я даю згоду на обробку моїх персональних даних відповідно до політики конфіденційності.</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%;" data-i18n="modal.submit_btn">Залишити заявку</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Client-side Scripts -->
+  <script src="js/i18n.js?v=1" defer></script>
+  <script src="js/main.js?v=11" defer></script>
+  <script src="js/vacancies.js?v=5" defer></script>
+</body>
+
+</html>

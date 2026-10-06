@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+  <!-- Anti-FOUC (Flash of Untranslated Content) Prevention Script -->
+  <script>
+    (function () {
+      try {
+        var savedLang = localStorage.getItem('kast_site_lang');
+        if (savedLang === 'en') {
+          document.documentElement.lang = 'en';
+          document.documentElement.classList.add('lang-en-pending');
+          setTimeout(function () {
+            document.documentElement.classList.remove('lang-en-pending');
+          }, 300);
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Команда експертів — Kast Solutions</title>
+  <meta name="meta-title-key" content="team.meta_title">
+  <meta name="meta-desc-key" content="team.meta_desc">
+  <meta name="description"
+    content="Познайомтеся з керівництвом та провідними архітекторами компанії Kast Solutions. Експерти у сфері штучного інтелекту, кібербезпеки та хмарних технологій.">
+  <meta name="keywords"
+    content="команда Kast Solutions, керівництво, IT директори, CTO, CEO, фахівці з кібербезпеки, AI інженери, архітектори систем">
+
+  <!-- FontAwesome for icons (Local) -->
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="css/style.css?v=11">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/32_32_logo.png">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header-main">
+
+      <!-- Brand Logo -->
+      <a href="index.html" class="header__logo">
+        <img src="img/logo.png" width="48" height="48" alt="Kast Solutions">
+        <span class="header__logo-brand">Kast <span>Solutions</span></span>
+      </a>
+
+      <!-- Navigation Menu -->
+      <nav class="header-main__nav">
+        <ul class="header-main__menu">
+          <li>
+            <a href="services.html" data-i18n="nav.services">Послуги</a>
+          </li>
+          <li>
+            <span><span data-i18n="nav.about">Про компанію</span> <i class="fa fa-angle-down"></i></span>
+            <div class="header-main__submenu-block">
+              <div class="header-main__submenu-wrap">
+                <ul class="header-main__submenu">
+                  <li><a href="about.html" data-i18n="nav.about_us">Про нас</a></li>
+                  <li><a href="licenses.html" data-i18n="nav.certificates">Сертифікати</a></li>
+                  <li><a href="contacts.html#vacancies" data-i18n="nav.careers">Вакансії</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li class="active">
+            <a href="team.html" data-i18n="nav.team">Команда</a>
+          </li>
+          <li>
+            <a href="contacts.html" data-i18n="nav.contacts">Контакти</a>
+          </li>
+        </ul>
+
+        <a href="#callback-modal" data-modal-target="callback-modal" class="header__cta-btn" data-i18n="nav.cta">Отримати консультацію</a>
+      </nav>
+
+      <!-- Header Actions (Language Dropdown & Burger) -->
+      <div class="header__actions">
+        <div class="lang-dropdown" id="lang-dropdown">
+          <button type="button" class="lang-dropdown__toggle" id="lang-toggle-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Вибір мови">
+            <span class="lang-dropdown__flag" id="current-lang-flag">
+              <svg class="flag-icon" viewBox="0 0 640 480" width="18" height="13.5" aria-hidden="true">
+                <g fill-rule="evenodd" stroke-width="1pt">
+                  <path fill="#0057b7" d="M0 0h640v240H0z"/>
+                  <path fill="#ffd700" d="M0 240h640v240H0z"/>
+                </g>
+              </svg>
+            </span>
+            <span class="lang-dropdown__label" id="current-lang-label">UA</span>
+            <svg class="lang-dropdown__chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+              <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="lang-dropdown__menu" role="listbox" aria-labelledby="lang-toggle-btn">
+            <button type="button" class="lang-dropdown__item active" data-lang="uk" role="option" aria-selected="true">
+              <span class="lang-dropdown__flag">
+                <svg class="flag-icon" viewBox="0 0 640 480" width="18" height="13.5" aria-hidden="true">
+                  <g fill-rule="evenodd" stroke-width="1pt">
+                    <path fill="#0057b7" d="M0 0h640v240H0z"/>
+                    <path fill="#ffd700" d="M0 240h640v240H0z"/>
+                  </g>
+                </svg>
+              </span>
+              <span class="lang-dropdown__name">Українська</span>
+              <svg class="lang-dropdown__check" width="12" height="10" viewBox="0 0 12 10" fill="none" aria-hidden="true">
+                <path d="M1 5L4.5 8.5L11 1.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <button type="button" class="lang-dropdown__item" data-lang="en" role="option" aria-selected="false">
+              <span class="lang-dropdown__flag">
+                <svg class="flag-icon" viewBox="0 0 640 480" width="18" height="13.5" aria-hidden="true">
+                  <path fill="#012169" d="M0 0h640v480H0z"/>
+                  <path fill="#FFF" d="m75 0 244 181L562 0h78v62L400 240l240 178v62h-80L320 301 81 480H0v-60l239-180L0 64V0h75z"/>
+                  <path fill="#C8102E" d="m424 288 216 162v30h-40L384 300l40-12zm-208 0-40 12L0 426v-30l176-132 40 24zM640 0v16L464 148l-40-24L600 0h40zM0 0h40L216 132l-40 24L0 34V0z"/>
+                  <path fill="#FFF" d="M240 0h160v480H240zM0 160h640v160H0z"/>
+                  <path fill="#C8102E" d="M267 0h106v480H267zM0 187h640v106H0z"/>
+                </svg>
+              </span>
+              <span class="lang-dropdown__name">English</span>
+              <svg class="lang-dropdown__check" width="12" height="10" viewBox="0 0 12 10" fill="none" aria-hidden="true">
+                <path d="M1 5L4.5 8.5L11 1.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile Burger Menu Button -->
+        <button class="header__burger" aria-label="Відкрити меню" data-i18n-aria="header.burger_aria">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <main>
+
+    <!-- PAGE BANNER -->
+    <section class="page-banner" style="background-image: url('img/header1.jpg');">
+      <div class="page-banner__content">
+        <span class="tech-badge" style="margin-bottom: 16px;" data-i18n="team.banner_badge">Leadership & Vision</span>
+        <h1 class="page-banner__title" data-i18n="team.banner_title">
+          Команда та лідери інновацій
+        </h1>
+        <p class="page-banner__subtitle" data-i18n="team.banner_subtitle">
+          Провідні фахівці з міжнародною експертизою, які стоять за впровадженням високонадійних технологічних рішень для наших партнерів.
+        </p>
+      </div>
+    </section>
+
+    <!-- TEAM SECTION -->
+    <section class="team_page_section">
+      <div class="container">
+
+        <ul class="team_list_container">
+
+          <!-- Member 1: worker_man_1.png (CEO) -->
+          <li class="member">
+            <div class="member_details_wrapper">
+              <div class="member_photo">
+                <img src="img/worker_man_1.png" alt="Олександр Коваленко">
+              </div>
+              <div class="member_details">
+                <h2 class="member_name" data-i18n="team.m1_name">Олександр Коваленко</h2>
+                <div class="member_position" data-i18n="team.m1_pos">Генеральний директор & Керуючий партнер (CEO)</div>
+                <ul class="member_perks">
+                  <li data-i18n="team.m1_p1">15+ років досвіду управління масштабними цифровими трансформаціями та IT-екосистемами</li>
+                  <li data-i18n="team.m1_p2">Сертифікований Enterprise Architect (TOGAF 9.2)</li>
+                  <li data-i18n="team.m1_p3">Керівник впровадження високореверсивних B2B платформ у міжнародному фінтеху</li>
+                  <li data-i18n="team.m1_p4">Спікер європейських самітів з технологічного консалтингу</li>
+                </ul>
+              </div>
+            </div>
+          </li>
+
+          <!-- Member 2: worker_fem_1.png (COO) -->
+          <li class="member">
+            <div class="member_details_wrapper">
+              <div class="member_photo">
+                <img src="img/worker_fem_1.png" alt="Олена Мельник">
+              </div>
+              <div class="member_details">
+                <h2 class="member_name" data-i18n="team.m2_name">Олена Мельник</h2>
+                <div class="member_position" data-i18n="team.m2_pos">Операційний директор & Партнер з розвитку (COO)</div>
+                <ul class="member_perks">
+                  <li data-i18n="team.m2_p1">Експерт зі стратегічного бізнес-аналізу та масштабування технологічних команд</li>
+                  <li data-i18n="team.m2_p2">Магістр міжнародного бізнес-адміністрування (MBA)</li>
+                  <li data-i18n="team.m2_p3">Член правління асоціації інноваційного технологічного бізнесу</li>
+                  <li data-i18n="team.m2_p4">Куратор сертифікації процесів компанії за стандартами ISO 9001 та ISO 27001</li>
+                </ul>
+              </div>
+            </div>
+          </li>
+
+          <!-- Member 3: worker_man_2.png (CTO / AI Head) -->
+          <li class="member">
+            <div class="member_details_wrapper">
+              <div class="member_photo">
+                <img src="img/worker_man_2.png" alt="Максим Шевченко">
+              </div>
+              <div class="member_details">
+                <h2 class="member_name" data-i18n="team.m3_name">Максим Шевченко</h2>
+                <div class="member_position" data-i18n="team.m3_pos">Технічний директор & Керівник напрямку AI (CTO)</div>
+                <ul class="member_perks">
+                  <li data-i18n="team.m3_p1">PhD у галузі штучного інтелекту та розподілених обчислювальних систем</li>
+                  <li data-i18n="team.m3_p2">Архітектор корпоративних LLM-моделей та RAG-інфраструктур для Enterprise</li>
+                  <li data-i18n="team.m3_p3">AWS Certified Solutions Architect Professional & Kubernetes CKA</li>
+                  <li data-i18n="team.m3_p4">12+ років практичного досвіду в High-Load архітектурах та DevSecOps</li>
+                </ul>
+              </div>
+            </div>
+          </li>
+
+          <!-- Member 4: worker_fem_2.png (CISO) -->
+          <li class="member">
+            <div class="member_details_wrapper">
+              <div class="member_photo">
+                <img src="img/worker_fem_2.png" alt="Вікторія Бондаренко">
+              </div>
+              <div class="member_details">
+                <h2 class="member_name" data-i18n="team.m4_name">Вікторія Бондаренко</h2>
+                <div class="member_position" data-i18n="team.m4_pos">Директор з кібербезпеки & Захисту даних (CISO)</div>
+                <ul class="member_perks">
+                  <li data-i18n="team.m4_p1">Сертифікований фахівець CISSP, Certified Ethical Hacker (CEH) та CISM</li>
+                  <li data-i18n="team.m4_p2">10+ років практичного аудиту критичної інфраструктури та тестування на проникнення</li>
+                  <li data-i18n="team.m4_p3">Керівник команди Incident Response та проєктування архітектур Zero-Trust</li>
+                  <li data-i18n="team.m4_p4">Провідний аудитор з міжнародної відповідності GDPR та NIST Cybersecurity Framework</li>
+                </ul>
+              </div>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- REDESIGNED FOOTER (Modern Tech B2B Layout) -->
+  <footer class="footer">
+    <div class="container footer__grid">
+
+      <!-- Col 1: Brand & Multi-Social Links -->
+      <div>
+        <div class="footer__col-logo">
+          <img src="img/logo.png" width="36" height="36" alt="Kast Solutions">
+          <span>Kast <b>Solutions</b></span>
+        </div>
+        <p class="footer__brand-text" data-i18n="footer.brand_desc">
+          Міжнародний консалтинг у сфері кібербезпеки, штучного інтелекту та високонавантаженої хмарної архітектури.
+        </p>
+        <div class="footer__social-list">
+          <a href="https://t.me/kast_solutions_demo" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="Telegram">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+          </a>
+          <a href="#" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.25c-.91 0-1.64.73-1.64 1.64s.73 1.64 1.64 1.64 1.64-.73 1.64-1.64-.73-1.64-1.64-1.64z"/></svg>
+          </a>
+          <a href="#" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="GitHub">
+            <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+          </a>
+          <a href="#" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="X (Twitter)">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Col 2: Solutions -->
+      <div>
+        <p class="footer__col-title" data-i18n="footer.col_solutions">Напрями послуг</p>
+        <ul class="footer__menu-list">
+          <li><a href="services.html" data-i18n="footer.sol_software">Розробка ПЗ</a></li>
+          <li><a href="services.html" data-i18n="footer.sol_cyber">Аудит кібербезпеки</a></li>
+          <li><a href="services.html" data-i18n="footer.sol_ai">Штучний інтелект & LLM</a></li>
+          <li><a href="services.html" data-i18n="footer.sol_cloud">Хмарний DevOps & K8s</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Company -->
+      <div>
+        <p class="footer__col-title" data-i18n="footer.col_company">Компанія</p>
+        <ul class="footer__menu-list">
+          <li><a href="about.html" data-i18n="footer.comp_about">Про нас</a></li>
+          <li><a href="team.html" data-i18n="footer.comp_team">Команда лідерів</a></li>
+          <li><a href="licenses.html" data-i18n="footer.comp_certs">Сертифікати ISO</a></li>
+          <li><a href="contacts.html#vacancies" data-i18n="footer.comp_careers">Кар'єра та вакансії</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Contacts -->
+      <div>
+        <p class="footer__col-title" data-i18n="footer.col_contacts">Контакти</p>
+        <ul class="footer__contacts-list">
+          <li><strong data-i18n="footer.contact_office_label">Офіс:</strong> <span data-i18n="footer.contact_office_val">м. Київ, вул. Ділова, 5, БЦ «Horizon»</span></li>
+          <li><strong data-i18n="footer.contact_email_label">Email:</strong> <a href="mailto:info@kast-solutions.com">info@kast-solutions.com</a></li>
+          <li><strong data-i18n="footer.contact_phone_label">Телефон:</strong> +38 (044) 390-00-00</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="container footer__bottom">
+      <p class="footer__copy" data-i18n="footer.copy">&copy; 2026 Kast Solutions. Всі права захищені.</p>
+      <div class="footer__bottom-links">
+        <a href="#" data-i18n="footer.privacy">Політика конфіденційності</a>
+        <a href="#" data-i18n="footer.terms">Умови надання послуг</a>
+        <a href="#" data-i18n="footer.compliance">ISO 27001 Compliance</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL POPUP FOR CALLBACK -->
+  <div class="modal" id="callback-modal">
+    <div class="modal__backdrop"></div>
+    <div class="modal__content">
+      <button class="modal__close" data-modal-close aria-label="Закрити модальне вікно" data-i18n-aria="modal.close_aria"></button>
+      <h3 class="modal__title" data-i18n="modal.title">Замовити консультацію</h3>
+      <p class="modal__subtitle" data-i18n="modal.subtitle">Заповніть форму, і наш провідний IT-архітектор зв'яжеться з вами протягом 15 хвилин.</p>
+
+      <form>
+        <div class="form-group">
+          <label for="modal-name" data-i18n="modal.name_label">Ваше ім’я</label>
+          <input type="text" id="modal-name" name="name" class="form-control" placeholder="Олександр" data-i18n-placeholder="modal.name_placeholder" required>
+        </div>
+        <div class="form-group">
+          <label for="modal-phone" data-i18n="modal.phone_label">Номер телефону</label>
+          <input type="tel" id="modal-phone" name="phone" class="form-control" placeholder="+38 (0XX) XXX-XX-XX" data-i18n-placeholder="modal.phone_placeholder"
+            required>
+        </div>
+
+        <div class="form-consent">
+          <input type="checkbox" id="modal-consent" checked required>
+          <label for="modal-consent">
+            <span data-i18n="modal.consent">Я даю згоду на обробку моїх персональних даних відповідно до політики конфіденційності.</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%;" data-i18n="modal.submit_btn">Залишити заявку</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Client-side Scripts -->
+  <script src="js/i18n.js?v=1" defer></script>
+  <script src="js/main.js?v=11" defer></script>
+</body>
+
+</html>

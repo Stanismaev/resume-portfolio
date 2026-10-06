@@ -1,0 +1,328 @@
+/* ==========================================================================
+   Kast Solutions — Services Page Custom Stylesheet
+   Modern High-Tech Layout
+   ========================================================================== */
+
+.services-page-main {
+  padding: 60px 0 100px;
+  background: #FFFFFF;
+}
+
+/* Service Page Intro */
+.services-intro-card {
+  background: linear-gradient(135deg, var(--color-brand-dark) 0%, var(--color-brand-slate) 100%);
+  border-radius: var(--radius-lg);
+  padding: 48px 40px;
+  color: #FFFFFF;
+  margin-bottom: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 36px;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.services-intro-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(2, 132, 199, 0.25) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.services-intro-text {
+  max-width: 680px;
+  position: relative;
+  z-index: 2;
+}
+
+.services-intro-text h2 {
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 800;
+  line-height: 1.25;
+  margin-top: 12px;
+  margin-bottom: 14px;
+  color: #FFFFFF;
+  letter-spacing: -0.02em;
+}
+
+.services-intro-text p {
+  font-size: 16px;
+  color: #94A3B8;
+  line-height: 1.6;
+}
+
+.services-intro-actions {
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+}
+
+/* 4 Core Pillars Grid */
+.services-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  margin-bottom: 80px;
+}
+
+.service-pillar-card {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 40px 36px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-pillar-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent-cyan));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.service-pillar-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(2, 132, 199, 0.35);
+  box-shadow: var(--shadow-lg);
+}
+
+.service-pillar-card:hover::before {
+  opacity: 1;
+}
+
+.pillar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.pillar-number {
+  font-size: 32px;
+  font-weight: 900;
+  color: #E2E8F0;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.pillar-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  background: rgba(2, 132, 199, 0.08);
+  color: var(--color-primary);
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+  border: 1px solid rgba(2, 132, 199, 0.2);
+}
+
+.pillar-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--color-brand-dark);
+  line-height: 1.3;
+  margin-bottom: 12px;
+  letter-spacing: -0.015em;
+}
+
+.pillar-desc {
+  font-size: 15px;
+  color: var(--color-text-body);
+  line-height: 1.65;
+  margin-bottom: 24px;
+}
+
+.pillar-features {
+  list-style: none;
+  margin-bottom: 28px;
+  padding: 0;
+}
+
+.pillar-features li {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  margin-bottom: 10px;
+  padding-left: 20px;
+  position: relative;
+  line-height: 1.5;
+}
+
+.pillar-features li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+  font-weight: bold;
+}
+
+.pillar-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-border);
+}
+
+.pillar-tag {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-primary);
+  background: rgba(2, 132, 199, 0.06);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+}
+
+/* Work Process Section */
+.work-process-section {
+  background: var(--color-bg-light);
+  border-radius: var(--radius-lg);
+  padding: 60px 48px;
+  margin-bottom: 80px;
+  border: 1px solid var(--color-border);
+}
+
+.process-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 50px;
+}
+
+.process-header h2 {
+  font-size: 30px;
+  font-weight: 800;
+  color: var(--color-brand-dark);
+  margin-top: 10px;
+  letter-spacing: -0.02em;
+}
+
+.process-header p {
+  color: var(--color-text-muted);
+  font-size: 15px;
+  margin-top: 8px;
+}
+
+.process-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.process-step-item {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 30px 24px;
+  position: relative;
+  box-shadow: var(--shadow-sm);
+}
+
+.step-badge {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--color-primary);
+  background: rgba(2, 132, 199, 0.1);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  display: inline-block;
+  margin-bottom: 14px;
+}
+
+.process-step-item h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--color-brand-dark);
+  margin-bottom: 8px;
+}
+
+.process-step-item p {
+  font-size: 13.5px;
+  color: var(--color-text-muted);
+  line-height: 1.55;
+}
+
+/* Contact / Quick Consultation Block */
+.services-cta-banner {
+  background: linear-gradient(135deg, var(--color-brand-dark) 0%, #0F172A 100%);
+  border-radius: var(--radius-lg);
+  padding: 56px 48px;
+  color: #FFFFFF;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(2, 132, 199, 0.25);
+  position: relative;
+}
+
+.services-cta-banner h2 {
+  font-size: clamp(26px, 3vw, 36px);
+  font-weight: 800;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+
+.services-cta-banner p {
+  font-size: 16px;
+  color: #94A3B8;
+  max-width: 620px;
+  margin: 0 auto 30px;
+}
+
+.services-cta-banner .btn {
+  font-size: 16px;
+  padding: 14px 36px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .services-pillars-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .process-steps-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .services-intro-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .process-steps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .work-process-section {
+    padding: 40px 20px;
+  }
+
+  .services-intro-card {
+    padding: 32px 20px;
+  }
+
+  .service-pillar-card {
+    padding: 28px 20px;
+  }
+
+  .services-cta-banner {
+    padding: 40px 20px;
+  }
+}
